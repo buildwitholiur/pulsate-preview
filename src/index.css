@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+
+  --color-custom-white: #ffffff;
+
+  --color-custom-gray-50: #f6fafb;
+  --color-custom-gray-100: #ccd3da;
+  --color-custom-gray-300: #9aa7b6;
+  --color-custom-gray-400: #8091a3;
+  --color-custom-gray-700: #35506d;
+  --color-custom-gray-800: #1b3a5a;
+  --color-custom-gray-900: #022448;
+
+  --color-custom-blue-50: #e9f2fb;
+  --color-custom-blue-100: rgba(76, 131, 190, 0.07);
+  --color-custom-blue-800: #338be7;
+  --color-custom-blue-900: #0050a2;
+
+  --color-custom-brand-50: rgba(135, 193, 76, 0.07);
+  --color-custom-brand-600: #aad481;
+  --color-custom-brand-900: #6eac31;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-poppins font-normal text-[14px] leading-[19px] bg-custom-white text-custom-gray-800;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium;
+  }
+
+  a {
+    @apply inline-block font-medium;
+  }
+
+  img,
+  svg {
+    @apply w-full h-full object-contain;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  label {
+    @apply block;
+  }
+
+  input {
+    @apply w-full h-full;
+  }
+}
+
+@layer components {
+  .font--36 {
+    @apply text-[36px] leading-[32px];
+  }
+
+  .font--30 {
+    @apply text-[30px] leading-[36px];
+  }
+
+  .font--20 {
+    @apply text-[20px] leading-[26px];
+  }
+
+  .font--18 {
+    @apply text-[18px] leading-[24px];
+  }
+
+  .font--16 {
+    @apply text-[16px] leading-[20px];
+  }
+
+  .font--14 {
+    @apply text-[14px] leading-[19px];
+  }
+
+  .font--12 {
+    @apply text-[12px] leading-[14px];
+  }
+
+  .flex--center {
+    @apply flex items-center justify-center;
+  }
+
+  .custom__btn {
+    @apply w-fit flex items-center justify-center gap-2 p-2.5 rounded-[10px] font-medium bg-custom-blue-900 text-custom-white transition-all duration-200 ease-in-out hover:bg-custom-blue-900/90;
+  }
+
+  .custom__btn--sm {
+    @apply py-[7px] px-[10px] rounded-lg;
+  }
+}
+
+/* Custom Code */
+.custom__slider-bg {
+  background-image: url("/images/slider-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.custom__glass-bg {
+  background: linear-gradient(
+    to top left,
+    rgba(255, 255, 255, 0.2) -10%,
+    rgba(255, 255, 255, 1) 80%
+  );
+
+  backdrop-filter: blur(60.37px);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.slick-dots {
+  width: auto !important;
+  left: auto;
+  bottom: 13px !important;
+  right: 0;
+  z-index: 10;
+}
+
+.slick-dots ul li {
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+.slick-dots .slick-active > div {
+  width: 10px;
+  height: 10px;
+  background: #022448;
+}
+
+/* Custom Code */
