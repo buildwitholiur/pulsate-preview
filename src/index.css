@@ -7,8 +7,11 @@
 
   --color-custom-white: #ffffff;
 
+  --color-custom-gray-25: #fbfefe;
   --color-custom-gray-50: #f6fafb;
+  --color-custom-gray-75: #fbfbfb;
   --color-custom-gray-100: #ccd3da;
+  --color-custom-gray-200: #e5f0f4;
   --color-custom-gray-300: #9aa7b6;
   --color-custom-gray-400: #8091a3;
   --color-custom-gray-700: #35506d;
@@ -22,7 +25,12 @@
 
   --color-custom-brand-50: rgba(135, 193, 76, 0.07);
   --color-custom-brand-600: #aad481;
+  --color-custom-brand-650: rgba(135, 193, 76, 0.07);
   --color-custom-brand-900: #6eac31;
+
+  --color-custom-green-700: #359977;
+
+  --color-custom-red-800: #db4060;
 }
 
 @layer base {
@@ -107,7 +115,25 @@
   }
 
   .custom__btn--sm {
-    @apply py-[7px] px-[10px] rounded-lg;
+    @apply py-[7.5px] px-[10px] rounded-lg;
+  }
+
+  .custom__btn--secondary {
+    @apply bg-custom-brand-900 gap-[10px] hover:bg-custom-brand-900/90;
+  }
+
+  .custom__select {
+    @apply appearance-none w-full bg-custom-white  pl-2 pr-8 h-[35px] text-[14px] leading-[19px] font-medium font-poppins border border-custom-brand-900 focus:outline-none text-custom-gray-800 rounded-[10px];
+  }
+
+  .custom__select-icon {
+    @apply absolute block w-4 h-4 pointer-events-none top-1/2 -translate-y-1/2 right-2;
+  }
+
+  .blur--protected {
+    @apply relative opacity-50 
+           after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-0 after:z-30  
+           after:w-full after:h-[110%] after:backdrop-blur-[7px];
   }
 }
 
@@ -151,6 +177,21 @@
   width: 10px;
   height: 10px;
   background: #022448;
+}
+
+.unlock__card {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 132, 190, 0.05) 0%,
+    rgba(104, 168, 220, 1) 32%,
+    rgba(158, 206, 111, 1) 48%,
+    rgba(104, 168, 220, 1) 79%,
+    rgba(76, 132, 190, 0.05) 100%
+  );
+}
+
+.unlock__card--shadow {
+  box-shadow: 0px 60px 80px 0px rgba(2, 36, 72, 0.15);
 }
 
 /* Custom Code */
