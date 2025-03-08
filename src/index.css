@@ -2,7 +2,14 @@
 
 @import "tailwindcss";
 
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+  preferredstrategy: "pseudoelements";
+}
+
 @theme {
+  --breakpoint-2xl: 88rem;
+
   --font-poppins: "Poppins", sans-serif;
 
   --color-custom-white: #ffffff;
@@ -79,11 +86,11 @@
 
 @layer components {
   .font--36 {
-    @apply text-[36px] leading-[32px];
+    @apply text-[28px] leading-[30px] md:text-[36px] md:leading-[32px];
   }
 
   .font--30 {
-    @apply text-[30px] leading-[36px];
+    @apply text-[24px] leading-[28px] md:text-[30px] md:leading-[36px];
   }
 
   .font--20 {
@@ -91,11 +98,11 @@
   }
 
   .font--18 {
-    @apply text-[18px] leading-[24px];
+    @apply text-[16px] leading-[20px] md:text-[18px] md:leading-[24px];
   }
 
   .font--16 {
-    @apply text-[16px] leading-[20px];
+    @apply text-[14px] leading-[19px] md:text-[16px] md:leading-[20px];
   }
 
   .font--14 {

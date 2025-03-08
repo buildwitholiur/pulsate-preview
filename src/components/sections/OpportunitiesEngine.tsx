@@ -4,7 +4,7 @@ import CampaignTable from "../tables/CampaignTable";
 const OpportunitiesEngine = () => {
   return (
     <section>
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
         <h1 className="font--30">Opportunities Engine</h1>
 
         <button className="custom__btn">
@@ -20,7 +20,7 @@ const OpportunitiesEngine = () => {
         </button>
       </div>
 
-      <div className="flex gap-2 mt-[22px] h-[425px]">
+      <div className="flex flex-col-reverse xl:flex-row gap-2 mt-[22px] h-auto xl:h-[425px]">
         <CampaignTable />
 
         <CampaignSlider />

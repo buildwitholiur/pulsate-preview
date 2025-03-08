@@ -1,6 +1,6 @@
 const CampaignTable = () => {
   return (
-    <div className="flex-1 pl-5 pb-5 pt-[22px] bg-custom-gray-50 rounded-[30px]">
+    <div className="flex-none xl:flex-1 pl-5 pb-5 pt-[22px] pr-2 bg-custom-gray-50 rounded-[30px]">
       <h2 className="font--18 flex items-center gap-2">
         <img
           className="w-6 h-6"
@@ -15,7 +15,7 @@ const CampaignTable = () => {
         </button>
       </h2>
 
-      <div className="w-[721px] h-[329px] mt-[26px]">
+      <div className="w-full max-w-[721px] h-[329px] mt-[26px]">
         <img
           className="object-cover"
           src="/images/engine-table.png"

@@ -1,63 +1,64 @@
 import { Link } from "react-router";
 import UnlockCard from "../shared/UnlockCard";
 
+interface OpportunitiesCardItem {
+  title: string;
+  audienceSize: number | string;
+  imageSrc: string;
+  link: string;
+  blur?: boolean;
+}
+
 const OpportunitiesList = () => {
+  const unlockCardData = {
+    title: "Unlock Premium Insights For Better Results",
+    lockIcon: "/images/lock.svg",
+    listItems: [
+      {
+        icon: "/images/discover.svg",
+        text: "Discover Top-Performing Opportunities",
+      },
+      {
+        icon: "/images/growth.svg",
+        text: "Never Miss Growth Moments",
+      },
+      {
+        icon: "/images/ai-powered.svg",
+        text: "Get AI-Powered Campaign Suggestions",
+      },
+    ],
+    buttonText: "Unlock Full Access",
+    buttonIcon: "/images/lock-btn.svg",
+    buttonLink: "/unlock",
+  };
+
+  const opportunitiesCardItems: OpportunitiesCardItem[] = [
+    {
+      title: "CD Maturing",
+      audienceSize: 33,
+      imageSrc: "/images/maturing.svg",
+      link: "/",
+    },
+    {
+      title: "Re-approved Auto Loan",
+      audienceSize: 1058,
+      imageSrc: "/images/loan.svg",
+      link: "/",
+    },
+    {
+      title: "Digital Onboarding",
+      audienceSize: 85,
+      imageSrc: "/images/digital.svg",
+      link: "/",
+      blur: true,
+    },
+  ];
+
   return (
     <section className="pt-8 grid grid-cols-1 gap-[10px] relative">
       {/* Unlock Box */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-13 w-full max-w-[538px] z-50">
-        <UnlockCard>
-          <div className="flex items-center gap-4">
-            <img
-              className="w-[50px] h-auto"
-              src="/images/lock.svg"
-              alt="lock"
-            />
-
-            <h3 className="font--18">
-              Unlock Premium Insights For Better Results
-            </h3>
-          </div>
-
-          <ul className="ml-3 mt-[26px] space-y-[38px]">
-            <li>
-              <div className="flex items-center gap-5">
-                <img className="w-5 h-5" src="/images/discover.svg" alt="" />
-
-                <p className="font--16">
-                  Discover Top-Performing Opportunities
-                </p>
-              </div>
-            </li>
-
-            <li>
-              <div className="flex items-center gap-5">
-                <img className="w-5 h-5" src="/images/growth.svg" alt="" />
-
-                <p className="font--16">Never Miss Growth Moments</p>
-              </div>
-            </li>
-
-            <li>
-              <div className="flex items-center gap-5">
-                <img className="w-5 h-5" src="/images/ai-powered.svg" alt="" />
-
-                <p className="font--16">Get AI-Powered Campaign Suggestions</p>
-              </div>
-            </li>
-          </ul>
-
-          <Link
-            to="/"
-            className="custom__btn custom__btn--secondary w-full mt-[27px]"
-          >
-            <img className="w-fit h-[18px]" src="/images/lock-btn.svg" alt="" />
-
-            <span>Unlock Full Access</span>
-
-            <img className="w-5 h-5" src="/images/arrow2-right.svg" alt="" />
-          </Link>
-        </UnlockCard>
+        <UnlockCard {...unlockCardData} />
       </div>
       {/* Unlock Box */}
 
@@ -89,84 +90,42 @@ const OpportunitiesList = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-[10px] mt-5">
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>CD Maturing</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">33</h5>
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-[10px] mt-5">
+          {opportunitiesCardItems.map((item, index) => (
+            <div
+              key={index}
+              className={`bg-custom-white p-[17px] rounded-[20px] ${
+                item.blur ? "blur--protected" : ""
+              }`}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="flex-1">{item.title}</h3>
+                <Link
+                  to={item.link}
+                  className="custom__btn custom__btn--sm px-[15px]"
+                >
+                  Start Campaign
+                </Link>
               </div>
 
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/maturing.svg"
-                alt="help"
-              />
-            </div>
-          </div>
-          {/* Single Item */}
+              <div className="flex items-center justify-between gap-6 mt-5 md:px-5">
+                <div className="flex-1/2">
+                  <p className="font-light text-custom-gray-700">
+                    Audience size
+                  </p>
+                  <h5 className="font-normal font--36 mt-3">
+                    {item.audienceSize}
+                  </h5>
+                </div>
 
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>Re-approved Auto Loan</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">1,058</h5>
+                <img
+                  className="w-fit h-[103px] 2xl:h-[120px]"
+                  src={item.imageSrc}
+                  alt={item.title}
+                />
               </div>
-
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/loan.svg"
-                alt="help"
-              />
             </div>
-          </div>
-          {/* Single Item */}
-
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px] blur--protected">
-            <div className="flex items-center justify-between ">
-              <h3>Digital Onboarding</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">85</h5>
-              </div>
-
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/digital.svg"
-                alt="help"
-              />
-            </div>
-          </div>
-          {/* Single Item */}
+          ))}
         </div>
       </div>
       {/* Opportunities Item */}
@@ -199,84 +158,42 @@ const OpportunitiesList = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-[10px] mt-5">
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>CD Maturing</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">33</h5>
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-[10px] mt-5">
+          {opportunitiesCardItems.map((item, index) => (
+            <div
+              key={index}
+              className={`bg-custom-white p-[17px] rounded-[20px] ${
+                item.blur ? "blur--protected" : ""
+              }`}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="flex-1">{item.title}</h3>
+                <Link
+                  to={item.link}
+                  className="custom__btn custom__btn--sm px-[15px]"
+                >
+                  Start Campaign
+                </Link>
               </div>
 
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/maturing.svg"
-                alt="help"
-              />
-            </div>
-          </div>
-          {/* Single Item */}
+              <div className="flex items-center justify-between gap-6 mt-5 md:px-5">
+                <div className="flex-1/2">
+                  <p className="font-light text-custom-gray-700">
+                    Audience size
+                  </p>
+                  <h5 className="font-normal font--36 mt-3">
+                    {item.audienceSize}
+                  </h5>
+                </div>
 
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>Re-approved Auto Loan</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">1,058</h5>
+                <img
+                  className="w-fit h-[103px] 2xl:h-[120px]"
+                  src={item.imageSrc}
+                  alt={item.title}
+                />
               </div>
-
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/loan.svg"
-                alt="help"
-              />
             </div>
-          </div>
-          {/* Single Item */}
-
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>Digital Onboarding</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">85</h5>
-              </div>
-
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/digital.svg"
-                alt="help"
-              />
-            </div>
-          </div>
-          {/* Single Item */}
+          ))}
         </div>
       </div>
       {/* Opportunities Item */}
@@ -309,84 +226,42 @@ const OpportunitiesList = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-3 gap-[10px] mt-5">
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>CD Maturing</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">33</h5>
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-[10px] mt-5">
+          {opportunitiesCardItems.map((item, index) => (
+            <div
+              key={index}
+              className={`bg-custom-white p-[17px] rounded-[20px] ${
+                item.blur ? "blur--protected" : ""
+              }`}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="flex-1">{item.title}</h3>
+                <Link
+                  to={item.link}
+                  className="custom__btn custom__btn--sm px-[15px]"
+                >
+                  Start Campaign
+                </Link>
               </div>
 
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/maturing.svg"
-                alt="help"
-              />
-            </div>
-          </div>
-          {/* Single Item */}
+              <div className="flex items-center justify-between gap-6 mt-5 md:px-5">
+                <div className="flex-1/2">
+                  <p className="font-light text-custom-gray-700">
+                    Audience size
+                  </p>
+                  <h5 className="font-normal font--36 mt-3">
+                    {item.audienceSize}
+                  </h5>
+                </div>
 
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>Re-approved Auto Loan</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">1,058</h5>
+                <img
+                  className="w-fit h-[103px] 2xl:h-[120px]"
+                  src={item.imageSrc}
+                  alt={item.title}
+                />
               </div>
-
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/loan.svg"
-                alt="help"
-              />
             </div>
-          </div>
-          {/* Single Item */}
-
-          {/* Single Item */}
-          <div className="bg-custom-white p-5 rounded-[20px]">
-            <div className="flex items-center justify-between ">
-              <h3>Digital Onboarding</h3>
-
-              <Link to="/" className="custom__btn custom__btn--sm px-[15px]">
-                Start Campaign
-              </Link>
-            </div>
-
-            <div className="flex items-center justify-between gap-6 mt-5 px-5">
-              <div className="flex-1/2">
-                <p className="font-light text-custom-gray-700">Audience size</p>
-
-                <h5 className="font-normal font--36 mt-3">85</h5>
-              </div>
-
-              <img
-                className="w-fit h-[103px] 2xl:h-[120px]"
-                src="/images/digital.svg"
-                alt="help"
-              />
-            </div>
-          </div>
-          {/* Single Item */}
+          ))}
         </div>
       </div>
       {/* Opportunities Item */}

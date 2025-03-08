@@ -1,9 +1,38 @@
-const Header = () => {
+interface HeaderProps {
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
+}
+
+const Header = ({ isSidebarOpen, toggleSidebar }: HeaderProps) => {
   return (
-    <header className="fixed top-0 right-0 w-[calc(100%-249px)] bg-custom-white h-[46px] py-[7px] pr-5 border-b border-custom-gray-100 flex items-center z-50">
-      <div className="w-full flex items-center justify-end relative">
-        <button className="w-[34px] h-[34px] absolute top-[22px] left-[-18px]">
+    <header
+      className={`fixed top-0 right-0 lg:w-[calc(100%-249px)] ${
+        isSidebarOpen ? "w-[calc(100%-249px)]" : "w-full"
+      } bg-custom-white h-[46px] py-[7px] px-5 border-b border-custom-gray-100 flex items-center z-30`}
+    >
+      <div className="w-full flex items-center justify-between lg:justify-end relative">
+        <button className="w-[34px] h-[34px] absolute top-[22px] left-[-38px] hidden lg:block">
           <img src="/images/sidebar-toggle.svg" alt="sidebar toggle" />
+        </button>
+
+        <button
+          onClick={toggleSidebar}
+          className="lg:hidden bg-custom-blue-100 w-8 h-8 rounded-[10px] flex--center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-5 text-custom-blue-900"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
         </button>
 
         <div className="flex items-center gap-4">
