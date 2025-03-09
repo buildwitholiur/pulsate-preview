@@ -22,8 +22,8 @@ const CampaignSlider = () => {
   };
 
   return (
-    <div className="custom__slider-bg w-full xl:max-w-[368px] h-auto rounded-[30px] flex items-center justify-center p-5 xl:p-0">
-      <div className="custom__glass-bg w-full max-w-[290px] sm:max-w-[450px] md:max-w-[600px] xl:w-[327px] xl:h-[387px] rounded-[20px] p-5 md:px-9 md:pt-[42px] md:pb-[44px]">
+    <div className="custom__slider-bg w-full 2xl:max-w-[368px] h-auto rounded-[30px] flex items-center justify-center p-5 2xl:p-0">
+      <div className="custom__glass-bg w-full max-w-[290px] sm:max-w-[450px] md:max-w-[600px] 2xl:w-[327px] 2xl:h-[387px] rounded-[20px] p-5 md:px-9 md:pt-[42px] md:pb-[44px]">
         <Slider {...settings} className="w-full h-full">
           {Array(5)
             .fill(null)

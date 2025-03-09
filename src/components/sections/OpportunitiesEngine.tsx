@@ -20,7 +20,7 @@ const OpportunitiesEngine = () => {
         </button>
       </div>
 
-      <div className="flex flex-col-reverse xl:flex-row gap-2 mt-[22px] h-auto xl:h-[425px]">
+      <div className="flex flex-col-reverse 2xl:flex-row gap-2 mt-[22px] h-auto 2xl:h-[425px]">
         <CampaignTable />
 
         <CampaignSlider />

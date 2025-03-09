@@ -57,7 +57,7 @@ const EngagementMetrics = () => {
 
       <div className="mt-5 space-y-[10px] flex flex-col 2xl:flex-row 2xl:justify-center gap-[10px] relative">
         {/* Unlock Box */}
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 bottom-4 w-full max-w-[538px] z-50">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-12 bottom-4 w-full max-w-[538px] z-30">
           <UnlockCard {...unlockMetricsCardData} />
         </div>
         {/* Unlock Box */}

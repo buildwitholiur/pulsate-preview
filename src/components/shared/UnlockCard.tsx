@@ -27,13 +27,11 @@ const UnlockCard = ({
       <div className="w-full h-full bg-custom-white rounded-[30px] p-3">
         <div className="unlock__card w-full h-full p-[1px] rounded-[20px]">
           <div className="w-full h-full bg-custom-white rounded-[20px] py-[26px] px-6">
-            {/* Header Section */}
             <div className="flex items-center gap-4">
               <img className="w-[50px] h-auto" src={lockIcon} alt="lock" />
               <h3 className="font--18">{title}</h3>
             </div>
 
-            {/* List Section */}
             <ul className="ml-3 mt-[26px] space-y-5 md:space-y-[38px]">
               {listItems.map((item, index) => (
                 <li key={index}>
@@ -45,7 +43,6 @@ const UnlockCard = ({
               ))}
             </ul>
 
-            {/* Button Section */}
             <Link
               to={buttonLink}
               className="custom__btn custom__btn--secondary w-full mt-[27px]"

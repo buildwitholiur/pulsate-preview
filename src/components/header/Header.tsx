@@ -8,7 +8,7 @@ const Header = ({ isSidebarOpen, toggleSidebar }: HeaderProps) => {
     <header
       className={`fixed top-0 right-0 lg:w-[calc(100%-249px)] ${
         isSidebarOpen ? "w-[calc(100%-249px)]" : "w-full"
-      } bg-custom-white h-[46px] py-[7px] px-5 border-b border-custom-gray-100 flex items-center z-30`}
+      } bg-custom-white h-[46px] py-[7px] px-5 border-b border-custom-gray-100 flex items-center z-50`}
     >
       <div className="w-full flex items-center justify-between lg:justify-end relative">
         <button className="w-[34px] h-[34px] absolute top-[22px] left-[-38px] hidden lg:block">

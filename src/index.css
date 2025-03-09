@@ -8,31 +8,38 @@
 }
 
 @theme {
-  --breakpoint-2xl: 88rem;
+  --breakpoint-2xl: 86rem;
 
   --font-poppins: "Poppins", sans-serif;
 
+  --color-custom-black: #000;
   --color-custom-white: #ffffff;
 
   --color-custom-gray-25: #fbfefe;
   --color-custom-gray-50: #f6fafb;
   --color-custom-gray-75: #fbfbfb;
   --color-custom-gray-100: #ccd3da;
+  --color-custom-gray-150: #eef5f8;
   --color-custom-gray-200: #e5f0f4;
   --color-custom-gray-300: #9aa7b6;
   --color-custom-gray-400: #8091a3;
   --color-custom-gray-700: #35506d;
   --color-custom-gray-800: #1b3a5a;
+  --color-custom-gray-850: #616161;
   --color-custom-gray-900: #022448;
+  --color-custom-gray-950: #a9ccda;
 
   --color-custom-blue-50: #e9f2fb;
   --color-custom-blue-100: rgba(76, 131, 190, 0.07);
+  --color-custom-blue-700: #3373b5;
   --color-custom-blue-800: #338be7;
+  --color-custom-blue-850: #1961ac;
   --color-custom-blue-900: #0050a2;
 
   --color-custom-brand-50: rgba(135, 193, 76, 0.07);
   --color-custom-brand-600: #aad481;
   --color-custom-brand-650: rgba(135, 193, 76, 0.07);
+  --color-custom-brand-800: #92c75e;
   --color-custom-brand-900: #6eac31;
 
   --color-custom-green-700: #359977;
@@ -118,15 +125,19 @@
   }
 
   .custom__btn {
-    @apply w-fit flex items-center justify-center gap-2 p-2.5 rounded-[10px] font-medium bg-custom-blue-900 text-custom-white transition-all duration-200 ease-in-out hover:bg-custom-blue-900/90;
+    @apply w-fit flex items-center justify-center gap-2 h-11 py-[5px] px-2.5 rounded-[10px] font-medium bg-custom-blue-900 text-custom-white transition-all duration-200 ease-in-out hover:bg-custom-blue-900/90;
   }
 
   .custom__btn--sm {
-    @apply py-[7.5px] px-[10px] rounded-lg;
+    @apply px-[10px] rounded-lg h-[34px];
   }
 
   .custom__btn--secondary {
     @apply bg-custom-brand-900 gap-[10px] hover:bg-custom-brand-900/90;
+  }
+
+  .custom__btn--blue {
+    @apply bg-custom-blue-850 hover:bg-custom-blue-850/90;
   }
 
   .custom__select {
@@ -139,8 +150,14 @@
 
   .blur--protected {
     @apply relative opacity-50 
-           after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-0 after:z-30  
+           after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-0 after:z-20  
            after:w-full after:h-[110%] after:backdrop-blur-[7px];
+  }
+
+  .blur--protected-table {
+    @apply relative rounded-[10px]  
+           after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-0 after:z-20  
+           after:w-full after:h-full after:rounded-[10px] after:backdrop-blur-[5px];
   }
 }
 

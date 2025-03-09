@@ -57,7 +57,7 @@ const OpportunitiesList = () => {
   return (
     <section className="pt-8 grid grid-cols-1 gap-[10px] relative">
       {/* Unlock Box */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-13 w-full max-w-[538px] z-50">
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-13 w-full max-w-[538px] z-30">
         <UnlockCard {...unlockCardData} />
       </div>
       {/* Unlock Box */}

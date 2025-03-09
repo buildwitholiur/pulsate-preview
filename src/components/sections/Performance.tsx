@@ -1,4 +1,6 @@
+import NotificationType from "../shared/NotificationType";
 import UnlockCard from "../shared/UnlockCard";
+import PerformanceTable from "../tables/PerformanceTable";
 
 const Performance = () => {
   const unlockPerformanceCardData = {
@@ -21,19 +23,19 @@ const Performance = () => {
 
   return (
     <section className="pt-8">
-      <div className="py-5 rounded-[30px] bg-custom-gray-50 flex items-start gap-5 relative">
+      <div className="p-5 rounded-[30px] bg-custom-gray-50 flex flex-col 2xl:flex-row items-start gap-5 relative">
         {/* Unlock Box */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-20 xl:top-1/2 xl:-translate-y-1/2 w-full max-w-[538px] z-50">
+        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full max-w-[538px] z-30">
           <UnlockCard {...unlockPerformanceCardData} />
         </div>
         {/* Unlock Box */}
 
-        <div className="w-full max-w-[682px]">
-          <h2 className="font--18 flex items-center gap-2 mx-5">
+        <div className="w-full 2xl:flex-1">
+          <h2 className="font--18 flex items-center gap-2">
             <img
-              className="w-6 h-6"
-              src="/images/attribution.svg"
-              alt="attribution"
+              className="w-[34px] h-[34px]"
+              src="/images/performance-icon.svg"
+              alt="performance"
             />
 
             <span>Performance</span>
@@ -47,22 +49,10 @@ const Performance = () => {
             </button>
           </h2>
 
-          <div className="mt-5">
-            <img
-              src="/images/performance-table1.png"
-              alt="performance table 1"
-            />
-          </div>
+          <PerformanceTable />
         </div>
 
-        <div className="w-full max-w-[404px]">
-          <div className="">
-            <img
-              src="/images/performance-table2.png"
-              alt="performance table 2"
-            />
-          </div>
-        </div>
+        <NotificationType />
       </div>
     </section>
   );
