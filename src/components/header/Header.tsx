@@ -1,14 +1,11 @@
 interface HeaderProps {
-  isSidebarOpen: boolean;
   toggleSidebar: () => void;
 }
 
-const Header = ({ isSidebarOpen, toggleSidebar }: HeaderProps) => {
+const Header = ({ toggleSidebar }: HeaderProps) => {
   return (
     <header
-      className={`fixed top-0 right-0 lg:w-[calc(100%-249px)] ${
-        isSidebarOpen ? "w-[calc(100%-249px)]" : "w-full"
-      } bg-custom-white h-[46px] py-[7px] px-5 border-b border-custom-gray-100 flex items-center z-50`}
+      className={`fixed top-0 right-0 w-full lg:w-[calc(100%-249px)] bg-custom-white h-[46px] py-[7px] px-5 border-b border-custom-gray-100 flex items-center z-40`}
     >
       <div className="w-full flex items-center justify-between lg:justify-end relative">
         <button className="w-[34px] h-[34px] absolute top-[22px] left-[-38px] hidden lg:block">
